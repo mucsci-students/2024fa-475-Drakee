@@ -25,12 +25,15 @@ public class GameManager : MonoBehaviour
 
     private bool isGamePaused;
 
+    private Vector3 ogBallPosition;
+
 //*********************************************************************
     // Start is called before the first frame update
     void Start()
     {
-      player1 = GameObject.FindGameObjectWithTag("Player");
-      ball = GameObject.FindGameObjectWithTag("Ball");
+        player1 = GameObject.FindGameObjectWithTag("Player");
+        ball = GameObject.FindGameObjectWithTag("Ball");
+        ogBallPosition = ball.transform.position;
     }
 
     // Update is called once per frame
@@ -48,8 +51,7 @@ public class GameManager : MonoBehaviour
     }
 
     //OnCollisionEnter method will be done in a seperate script, since we are working with two players that need to be handled different.
-        //i could do it in the "PlayerMovement" script, but this may cause problems when implementing AI.
-
+    //Also, the players do not have the GameManager attached to them.
     //Call this method in the new script.
     public void updatePlayerScore (GameObject whichPlayer) 
     {
@@ -57,11 +59,13 @@ public class GameManager : MonoBehaviour
         {
             player1Score++;
             Debug.Log("Player 1 Score is " + player1Score);
+            ball.transform.position = ogBallPosition;
         }
         if (whichPlayer.CompareTag("Player2"))
         {
             player2Score++;
             Debug.Log("Player 2 Score is " + player2Score);
+            ball.transform.position = ogBallPosition;
         }
     }
 
