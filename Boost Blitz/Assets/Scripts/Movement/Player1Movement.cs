@@ -51,8 +51,9 @@ public class Player1Movement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            player.transform.position = new Vector3(1, 2, 1);
+            player.transform.position = new Vector3(1, 2, -227);
             player.transform.rotation = Quaternion.identity;
+            playerRigidbody.velocity = new Vector3(0, 0, 0);
         }
     }
 }
