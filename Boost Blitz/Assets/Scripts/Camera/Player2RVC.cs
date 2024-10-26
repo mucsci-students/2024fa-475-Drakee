@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToggleRearViewCamera : MonoBehaviour
+public class Player2RVC : MonoBehaviour
 {
     public Camera rearViewCamera;
     private bool isEnabled;
@@ -22,7 +22,7 @@ public class ToggleRearViewCamera : MonoBehaviour
 
     void ToggleCamera()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             if (isEnabled)
             {
