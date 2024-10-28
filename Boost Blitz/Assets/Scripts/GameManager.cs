@@ -36,9 +36,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player1 = GameObject.FindGameObjectWithTag("Player");
+        player2 = GameObject.FindGameObjectWithTag("Player2");
         ball = GameObject.FindGameObjectWithTag("Ball");
         ogBallPosition = ball.transform.position;
         ogPlayer1Position = player1.transform.position;
+        ogPlayer2Position = player2.transform.position;
     }
 
     // Update is called once per frame
@@ -117,7 +119,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         player1.SetActive(true);
-        //player2.SetActive(true);
+        player2.SetActive(true);
     }
 
     //opposite of activate
@@ -125,7 +127,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         player1.SetActive(false);
-        //player2.SetActive(false);
+        player2.SetActive(false);
     }
 
     //reset ball and player positions.
@@ -135,7 +137,7 @@ public class GameManager : MonoBehaviour
         
         ball.transform.position = ogBallPosition;
         player1.transform.position = ogPlayer1Position;
-        //player2.transform.position = ogPlayer2Position;
+        player2.transform.position = ogPlayer2Position;
     }
 
     //Should be called when score = 5
