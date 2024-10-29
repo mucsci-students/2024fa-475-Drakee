@@ -12,7 +12,7 @@ using UnityEngine;
 public class ConnectionManager : MonoBehaviour
 {
     [SerializeField] private string _listenIP = "127.0.0.1";
-    [SerializeField] private string _connectIP = "127.0.0.1";
+    [SerializeField] private string _connectIP = "3.141.28.133";
     [SerializeField] private ushort _port = 7979;
 
     public static World serverWorld = null;
