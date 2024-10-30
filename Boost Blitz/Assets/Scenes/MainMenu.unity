@@ -1466,8 +1466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170b4341980957e4e97a9034d847cafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startSplitScreen: {fileID: 1094113890}
   _startMultiplayerLobby: {fileID: 1795785804}
+  _startSplitScreen: {fileID: 1094113890}
+  _Quit: {fileID: 2044284332}
 --- !u!1 &2044284327
 GameObject:
   m_ObjectHideFlags: 0

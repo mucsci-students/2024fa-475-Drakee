@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
-   [SerializeField] Button _startSplitScreen;
-   [SerializeField] Button _startMultiplayerLobby;
+    [SerializeField] Button _startMultiplayerLobby;
+    [SerializeField] Button _startSplitScreen;
+
+    [SerializeField] Button _Quit;
+   
 
    void Start()
    {
     _startSplitScreen.onClick.AddListener(startSplitScreen);
     _startMultiplayerLobby.onClick.AddListener(startMultiplayerLobby);
+    _Quit.onClick.AddListener(QuitGame);
    }
 
    private void startSplitScreen()
@@ -22,5 +26,9 @@ public class UIMainMenu : MonoBehaviour
    private void startMultiplayerLobby()
    {
     ScenesManager.Instance.LoadScene(ScenesManager.Scene.Lobby);
+   }
+   private void QuitGame()
+   {
+        Application.Quit();
    }
 }
