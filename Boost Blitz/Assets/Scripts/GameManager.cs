@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
             endOfGame();
         }
 
-        //Trigger the start delay if a player has scored.
+        //Trigger the start delay if a player has scored. (triggered by updatePlayerScore)
         if (hasScored == true)
         {
             deactivate();
@@ -130,17 +130,17 @@ public class GameManager : MonoBehaviour
         player2.SetActive(false);
     }
 
-    //reset ball and player positions.
+    //reset ball and player positions as well as their rotations & velocities.
     void resetPositions()
     {
-        //i think the rotations are wrong, but it seems like it works.
-        
         ball.transform.position = ogBallPosition;
         ball.transform.rotation = Quaternion.identity;
         ball.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
         player1.transform.position = ogPlayer1Position;
         player1.transform.rotation = Quaternion.identity;
-        player2.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        player1.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
         player2.transform.position = ogPlayer2Position;
         player2.transform.rotation = new Quaternion(0, 180, 0, 0);
         player2.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
