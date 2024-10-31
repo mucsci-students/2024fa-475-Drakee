@@ -16,24 +16,15 @@ public class Player2RVC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        ToggleCamera();
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            ToggleCamera();
+        }
     }
 
     void ToggleCamera()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            if (isEnabled)
-            {
-                isEnabled = false;
-                rearViewCamera.depth = -2;
-            }
-            else
-            {
-                isEnabled = true;
-                rearViewCamera.depth = 1;
-            }
-        }
+        isEnabled = !isEnabled;
+        rearViewCamera.depth = isEnabled ? 1 : -2;
     }
 }
