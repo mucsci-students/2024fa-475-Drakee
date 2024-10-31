@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private bool isGamePaused;
     private bool hasScored = false;
+    private bool isInitialDelay = true;
 
     private Vector3 ogBallPosition;
     private Vector3 ogPlayer1Position;
@@ -41,6 +42,9 @@ public class GameManager : MonoBehaviour
         ogBallPosition = ball.transform.position;
         ogPlayer1Position = player1.transform.position;
         ogPlayer2Position = player2.transform.position;
+        //may have to move this print statement when the player scores a goal.
+        print("3");
+        Debug.Log("Start has been called.");
     }
 
     // Update is called once per frame
@@ -57,16 +61,29 @@ public class GameManager : MonoBehaviour
         }
 
         //Trigger the start delay if a player has scored. (triggered by updatePlayerScore)
-        if (hasScored == true)
+        if ((hasScored == true) || (isInitialDelay == true))
         {
             deactivate();
             startDelay++;
 
-            if (startDelay == 180)
+            //Next if statements print the start delay countdown.
+            if (startDelay == (500 / 3))
+            {
+                print("2");
+            }
+            if (startDelay == (500 / 2))
+            {
+                print("1");
+            }
+
+            //500 ~= 3 seconds. start delay is complete.
+            if (startDelay == 500)
             {
                 hasScored = false;
                 startDelay = 0;
+                isInitialDelay = false;
                 activate();
+                print("Start");
                 Debug.Log("Start Delay Complete.");
             }
         }
