@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 347627519}
   - component: {fileID: 347627520}
   m_Layer: 0
-  m_Name: testgoal
+  m_Name: GoalTrigger
   m_TagString: GoalPlayer1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,7 +772,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347627514}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -824,7 +824,7 @@ Transform:
   m_GameObject: {fileID: 347627514}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -6.7, y: 5.3, z: 80.35}
+  m_LocalPosition: {x: -6.7, y: -36.2, z: 93.4}
   m_LocalScale: {x: 5, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2150,7 +2150,7 @@ GameObject:
   - component: {fileID: 1672294799}
   - component: {fileID: 1672294798}
   m_Layer: 0
-  m_Name: testgoal (1)
+  m_Name: GoalTrigger2
   m_TagString: GoalPlayer2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2211,7 +2211,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672294797}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2263,7 +2263,7 @@ Transform:
   m_GameObject: {fileID: 1672294797}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4, y: 5.3, z: -283.5}
+  m_LocalPosition: {x: -4, y: -37, z: -297.6}
   m_LocalScale: {x: 5, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
