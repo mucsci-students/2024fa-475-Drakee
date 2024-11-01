@@ -1129,6 +1129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rearViewCamera: {fileID: 472549028}
+  mainCamera: {fileID: 2027717580}
 --- !u!1 &728692904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,6 +2140,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!20 &1481030616 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5450916095265243567, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
+  m_PrefabInstance: {fileID: 2740263881901329574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1484602670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,6 +2841,11 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 3524281451126686241, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
   m_PrefabInstance: {fileID: 2740263881901329574}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &2027717580 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5450916095265243567, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
+  m_PrefabInstance: {fileID: 1979134071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2094907222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3144,6 +3155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rearViewCamera: {fileID: 2026749304}
+  mainCamera: {fileID: 1481030616}
 --- !u!114 &8475118991602457248
 MonoBehaviour:
   m_ObjectHideFlags: 0
