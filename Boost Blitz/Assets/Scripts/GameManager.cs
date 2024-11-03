@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private bool isGamePaused;
     private bool hasScored = false;
+    private bool isInitialDelay = true;
 
     private Vector3 ogBallPosition;
     private Vector3 ogPlayer1Position;
@@ -41,6 +42,9 @@ public class GameManager : MonoBehaviour
         ogBallPosition = ball.transform.position;
         ogPlayer1Position = player1.transform.position;
         ogPlayer2Position = player2.transform.position;
+        //may have to move this print statement when the player scores a goal.
+        print("3");
+        Debug.Log("Start has been called.");
     }
 
     // Update is called once per frame
@@ -56,17 +60,30 @@ public class GameManager : MonoBehaviour
             endOfGame();
         }
 
-        //Trigger the start delay if a player has scored.
-        if (hasScored == true)
+        //Trigger the start delay if a player has scored. (triggered by updatePlayerScore)
+        if ((hasScored == true) || (isInitialDelay == true))
         {
             deactivate();
             startDelay++;
 
-            if (startDelay == 180)
+            //Next if statements print the start delay countdown.
+            if (startDelay == (500 / 3))
+            {
+                print("2");
+            }
+            if (startDelay == (500 / 2))
+            {
+                print("1");
+            }
+
+            //500 ~= 3 seconds. start delay is complete.
+            if (startDelay == 500)
             {
                 hasScored = false;
                 startDelay = 0;
+                isInitialDelay = false;
                 activate();
+                print("Start");
                 Debug.Log("Start Delay Complete.");
             }
         }
@@ -130,17 +147,17 @@ public class GameManager : MonoBehaviour
         player2.SetActive(false);
     }
 
-    //reset ball and player positions.
+    //reset ball and player positions as well as their rotations & velocities.
     void resetPositions()
     {
-        //i think the rotations are wrong, but it seems like it works.
-        
         ball.transform.position = ogBallPosition;
         ball.transform.rotation = Quaternion.identity;
         ball.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
         player1.transform.position = ogPlayer1Position;
         player1.transform.rotation = Quaternion.identity;
-        player2.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        player1.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
         player2.transform.position = ogPlayer2Position;
         player2.transform.rotation = new Quaternion(0, 180, 0, 0);
         player2.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
