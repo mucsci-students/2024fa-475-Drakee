@@ -16,7 +16,7 @@ public class ScenesManager : MonoBehaviour
     public enum Scene
     {
         MainMenu,
-        splitScreen,
+        Multiplayer,
         Lobby
     }
 
@@ -27,7 +27,7 @@ public class ScenesManager : MonoBehaviour
 
     public void LoadNewGame()
     {
-        SceneManager.LoadScene(Scene.splitScreen.ToString());
+        SceneManager.LoadScene(Scene.Multiplayer.ToString());
     }
 
     public void LoadNextScene()

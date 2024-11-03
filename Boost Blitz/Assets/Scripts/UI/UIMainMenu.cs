@@ -20,7 +20,7 @@ public class UIMainMenu : MonoBehaviour
 
    private void startSplitScreen()
    {
-    ScenesManager.Instance.LoadScene(ScenesManager.Scene.splitScreen);
+    ScenesManager.Instance.LoadScene(ScenesManager.Scene.Multiplayer);
    }
 
    private void startMultiplayerLobby()
