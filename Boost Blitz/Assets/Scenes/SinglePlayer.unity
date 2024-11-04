@@ -1330,7 +1330,7 @@ PrefabInstance:
     - target: {fileID: 2539158676874854561, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: 6c4892cdeabe2094f828f6e4b8d29bd4, type: 2}
+      objectReference: {fileID: 13400000, guid: ec3c252951d7d3340970c1ea008c77c0, type: 2}
     - target: {fileID: 3358573959880985100, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1357,7 +1357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4261911097970673838, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4261911097970673838, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1429,7 +1429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8548616306107182206, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7612648767310460318, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
@@ -2841,7 +2841,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852907770}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 04ec42ec8dbc16e40bba71077f822ab6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3127,7 +3127,7 @@ PrefabInstance:
     - target: {fileID: 2539158676874854561, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: fa931614214cd354c937753017bb2e78, type: 2}
+      objectReference: {fileID: 13400000, guid: ec3c252951d7d3340970c1ea008c77c0, type: 2}
     - target: {fileID: 3524281451126686241, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
       value: 0
