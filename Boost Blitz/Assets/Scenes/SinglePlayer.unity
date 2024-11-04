@@ -1396,6 +1396,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5450916095265243567, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450916095265243567, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
@@ -1426,6 +1430,18 @@ PrefabInstance:
     - target: {fileID: 7217593256553276089, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354670833244737607, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354670833244737607, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.20337176
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354670833244737607, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8548616306107182206, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_Constraints
@@ -2716,7 +2732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 1727042620}
-  moveSpeed: 5
+  moveSpeed: 7.5
   rotationSpeed: 2
   kickForce: 5
   hitDistance: 2
@@ -2808,7 +2824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1: {fileID: 6447917800487592764}
-  player2: {fileID: 0}
+  player2: {fileID: 1700367727}
   gameManager: {fileID: 1123980290}
 --- !u!4 &1727042624 stripped
 Transform:
