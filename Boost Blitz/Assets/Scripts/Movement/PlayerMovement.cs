@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             // increase the players velocity in the direction they are facing
-            playerRigidbody.velocity += player.transform.forward * .25f;
+            playerRigidbody.velocity += player.transform.forward * .15f;
             
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else 
             {
-                playerRigidbody.velocity -= player.transform.forward * .25f;
+                playerRigidbody.velocity -= player.transform.forward * .15f;
             }
             
         }
