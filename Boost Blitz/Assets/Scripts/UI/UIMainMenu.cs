@@ -12,7 +12,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] Button _Quit;
    
 
-   void Start()
+   public void Start()
    {
     _startSplitScreen.onClick.AddListener(startSplitScreen);
     _startMultiplayerLobby.onClick.AddListener(startMultiplayerLobby);
