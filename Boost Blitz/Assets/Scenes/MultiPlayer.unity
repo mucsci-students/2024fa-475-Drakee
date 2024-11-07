@@ -1221,6 +1221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 507340701}
+  dynamicFrictionCoefficient: 2.5
 --- !u!114 &507340707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2852,7 +2853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4261911097970673838, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4261911097970673838, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2929,6 +2930,10 @@ PrefabInstance:
     - target: {fileID: 8354670833244737607, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_Color.r
       value: 0.1033731
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548616306107182206, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7612648767310460318, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
@@ -3071,7 +3076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4261911097970673838, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4261911097970673838, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3136,6 +3141,10 @@ PrefabInstance:
     - target: {fileID: 7217593256553276089, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548616306107182206, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7612648767310460318, guid: 7d8956b3c27333c43ae105a4689e62cb, type: 3}
@@ -3275,6 +3284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6447917800487592764}
+  dynamicFrictionCoefficient: 2.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
