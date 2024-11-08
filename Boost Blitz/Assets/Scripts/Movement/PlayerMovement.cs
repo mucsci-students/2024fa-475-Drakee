@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject player;
+    public float dynamicFrictionCoefficient = .05f;
     private Rigidbody playerRigidbody;
 
     // Start is called before the first frame update
@@ -13,18 +14,24 @@ public class PlayerMovement : MonoBehaviour
         playerRigidbody = player.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        AdjustForFriction();
         MovePlayer();
+    }
+
+    void AdjustForFriction()
+    {
+        playerRigidbody.velocity -= playerRigidbody.velocity * 0.05f;
     }
 
     void MovePlayer()
     {
+        // Check for input
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             // increase the players velocity in the direction they are facing
-            playerRigidbody.velocity += player.transform.forward * .15f;
+            playerRigidbody.velocity += player.transform.forward * 2.0f;
             
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
@@ -32,27 +39,29 @@ public class PlayerMovement : MonoBehaviour
             // check to see if the player is moving forward
             if (playerRigidbody.velocity.normalized == player.transform.forward)
             {
-                playerRigidbody.velocity -= player.transform.forward * .5f;
+                playerRigidbody.velocity -= player.transform.forward * 2.25f;
             }
             else 
             {
-                playerRigidbody.velocity -= player.transform.forward * .15f;
+                playerRigidbody.velocity -= player.transform.forward * 2.0f;
             }
             
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             // rotate the player 15 degrees to the left
-            player.transform.Rotate(0, -1, 0);
+            player.transform.Rotate(0, -4, 0);
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            player.transform.Rotate(0, 1, 0);
+            player.transform.Rotate(0, 4, 0);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            player.transform.position = new Vector3(1, 2, 1);
-            player.transform.rotation = Quaternion.identity;
+            player.transform.position = new Vector3(1, .2f, -227.3f);
+            player.transform.rotation = new Quaternion(0, 180, 0, 0);
+            playerRigidbody.velocity = new Vector3(0, 0, 0);
         }
     }
 }
+

@@ -8,7 +8,7 @@ public class UIMainMenu : MonoBehaviour
 {
     [SerializeField] Button _startMultiplayerLobby;
     [SerializeField] Button _startSplitScreen;
-
+    [SerializeField] Button _startSinglePlayer;
     [SerializeField] Button _Quit;
    
 
@@ -16,6 +16,7 @@ public class UIMainMenu : MonoBehaviour
    {
     _startSplitScreen.onClick.AddListener(startSplitScreen);
     _startMultiplayerLobby.onClick.AddListener(startMultiplayerLobby);
+    _startSinglePlayer.onClick.AddListener(startSinglePlayer);
     _Quit.onClick.AddListener(QuitGame);
    }
 
@@ -31,5 +32,9 @@ public class UIMainMenu : MonoBehaviour
    private void QuitGame()
    {
         Application.Quit();
+   }
+   private void startSinglePlayer()
+   {
+     ScenesManager.Instance.LoadScene(ScenesManager.Scene.SinglePlayer);
    }
 }

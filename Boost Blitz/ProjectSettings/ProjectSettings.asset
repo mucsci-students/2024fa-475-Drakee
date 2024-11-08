@@ -755,11 +755,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 828cf7c1-8447-45a7-a771-7d28b0c16c25
+  cloudProjectId: 9ec945a8-a4a5-4756-b622-fc317aeaaa0b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Boost Blitz
-  organizationId: derrickboyer3
+  organizationId: csci-475-drakee
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
