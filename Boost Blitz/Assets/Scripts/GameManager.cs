@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject player2;
     public GameObject ball;
 
+    public Camera delayCamera;
+
     private int player1Score = 0;
     private int player2Score = 0;
     private int pauseKeyCount = 0;
@@ -42,18 +44,19 @@ public class GameManager : MonoBehaviour
         ogBallPosition = ball.transform.position;
         ogPlayer1Position = player1.transform.position;
         ogPlayer2Position = player2.transform.position;
-        //may have to move this print statement when the player scores a goal.
-        print("3");
         Debug.Log("Start has been called.");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //Manage game pausing.
+        //Manage game pausing. (doesnt work properly in fixedupdate for some reason)
         isGamePaused = Input.GetKeyDown(KeyCode.P);
         OnApplicationPause(isGamePaused);
+    }
 
+    //Dependent on every FIXED Frame [Not Dependent on Hardware Performance like Update is]
+    void FixedUpdate()
+    {
         //Is the game over?
         if ((player1Score == 5) || (player2Score == 5))
         {
@@ -64,26 +67,30 @@ public class GameManager : MonoBehaviour
         if ((hasScored == true) || (isInitialDelay == true))
         {
             deactivate();
+            //incrementing 50 per second
             startDelay++;
 
-            //Next if statements print the start delay countdown.
-            if (startDelay == (500 / 3))
+            if (startDelay == 1)
             {
-                print("2");
-            }
-            if (startDelay == (500 / 2))
-            {
-                print("1");
+                Debug.Log("3");
             }
 
-            //500 ~= 3 seconds. start delay is complete.
-            if (startDelay == 500)
+            if (startDelay == (50))
+            {
+                Debug.Log("2");
+            }
+            if (startDelay == (100))
+            {
+                Debug.Log("1");
+            }
+            //start delay is complete.
+            if (startDelay == 150)
             {
                 hasScored = false;
                 startDelay = 0;
                 isInitialDelay = false;
                 activate();
-                print("Start");
+                Debug.Log("Start");
                 Debug.Log("Start Delay Complete.");
             }
         }
@@ -134,17 +141,23 @@ public class GameManager : MonoBehaviour
     //activates player control and time.
     void activate()
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         player1.SetActive(true);
         player2.SetActive(true);
+        ball.SetActive(true);
+
+        delayCamera.enabled = false;
     }
 
     //opposite of activate
     void deactivate()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         player1.SetActive(false);
         player2.SetActive(false);
+        ball.SetActive(false);
+
+        delayCamera.enabled = true;
     }
 
     //reset ball and player positions as well as their rotations & velocities.
