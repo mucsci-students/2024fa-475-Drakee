@@ -8,6 +8,7 @@ TagManager:
   - Player2
   - GoalPlayer1
   - GoalPlayer2
+  - DelayCamera
   layers:
   - Default
   - TransparentFX
