@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,12 @@ public class GameManager : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     public GameObject ball;
+
+    public GameObject delayDisplay;
+    public GameObject scoreDisplay;
+    //public TextMeshProUGUI scoreText;
+    //public Text scoreText = scoreDisplay.transform.GetChild(0);
+    //public Text scoreText;
 
     public Camera delayCamera;
 
@@ -44,6 +51,7 @@ public class GameManager : MonoBehaviour
         ogBallPosition = ball.transform.position;
         ogPlayer1Position = player1.transform.position;
         ogPlayer2Position = player2.transform.position;
+        showPlayerScore();
         Debug.Log("Start has been called.");
     }
 
@@ -66,6 +74,8 @@ public class GameManager : MonoBehaviour
         //Trigger the start delay if a player has scored. (triggered by updatePlayerScore)
         if ((hasScored == true) || (isInitialDelay == true))
         {
+            Text delayText = delayDisplay.GetComponent<Text>();
+
             deactivate();
             //incrementing 50 per second
             startDelay++;
@@ -73,15 +83,18 @@ public class GameManager : MonoBehaviour
             if (startDelay == 1)
             {
                 Debug.Log("3");
+                delayText.text = "3";
             }
 
             if (startDelay == (50))
             {
                 Debug.Log("2");
+                delayText.text = "2";
             }
             if (startDelay == (100))
             {
                 Debug.Log("1");
+                delayText.text = "1";
             }
             //start delay is complete.
             if (startDelay == 150)
@@ -91,6 +104,8 @@ public class GameManager : MonoBehaviour
                 isInitialDelay = false;
                 activate();
                 Debug.Log("Start");
+                //delayText.text = "Start";
+                delayText.text = "Paused";
                 Debug.Log("Start Delay Complete.");
             }
         }
@@ -115,6 +130,12 @@ public class GameManager : MonoBehaviour
             resetPositions();
             hasScored = true;
         }
+    }
+
+    public void showPlayerScore()
+    {
+        Text scoreText = scoreDisplay.GetComponent<Text>();
+        scoreText.text = (player1Score.ToString() + " || " + player2Score.ToString());
     }
 
     private void OnApplicationPause(bool pause)
@@ -147,6 +168,8 @@ public class GameManager : MonoBehaviour
         ball.SetActive(true);
 
         delayCamera.enabled = false;
+        delayDisplay.SetActive(false);
+        showPlayerScore();
     }
 
     //opposite of activate
@@ -158,6 +181,7 @@ public class GameManager : MonoBehaviour
         ball.SetActive(false);
 
         delayCamera.enabled = true;
+        delayDisplay.SetActive(true);
     }
 
     //reset ball and player positions as well as their rotations & velocities.
