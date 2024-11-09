@@ -56,11 +56,5 @@ public class Player1Movement : MonoBehaviour
         {
             player.transform.Rotate(0, 4, 0);
         }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            player.transform.position = new Vector3(1, .2f, -227.3f);
-            player.transform.rotation = new Quaternion(0, 0, 0, 0);
-            playerRigidbody.velocity = new Vector3(0, 0, 0);
-        }
     }
 }
