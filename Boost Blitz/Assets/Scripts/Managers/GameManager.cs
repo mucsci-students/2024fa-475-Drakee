@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public GameObject scoreDisplay;
     public GameObject controlsDisplay;
 
+    private ScenesManager scenesManager;
+
     public Camera delayCamera;
 
     private int player1Score = 0;
@@ -156,6 +158,8 @@ public class GameManager : MonoBehaviour
         Text controlsText = controlsDisplay.GetComponent<Text>();
 
         //should be different dependent on game mode.
+        //Scene currentScene = ScenesManager.Scene;
+        
 
         string[] controls = new string[6];
         controls[0] = "     Player 1 (Top Screen)                             Player 2 (Bottom Screen)" + "\n" + "     -----------------------------                             ---------------------------------" + "\n";
@@ -233,6 +237,7 @@ public class GameManager : MonoBehaviour
     //Should be called when score = 5
     void endOfGame()
     {
+        hasScored = false;
         deactivate();
 
         //Debug.Log("The game has ended.");
