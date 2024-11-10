@@ -22,9 +22,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject delayDisplay;
     public GameObject scoreDisplay;
-    //public TextMeshProUGUI scoreText;
-    //public Text scoreText = scoreDisplay.transform.GetChild(0);
-    //public Text scoreText;
+    public GameObject controlsDisplay;
 
     public Camera delayCamera;
 
@@ -35,7 +33,8 @@ public class GameManager : MonoBehaviour
 
     private bool isGamePaused;
     private bool hasScored = false;
-    private bool isInitialDelay = true;
+    private bool isInitialDelay = false;
+    private bool hasPassedControlScreen;
 
     private Vector3 ogBallPosition;
     private Vector3 ogPlayer1Position;
@@ -48,10 +47,14 @@ public class GameManager : MonoBehaviour
         player1 = GameObject.FindGameObjectWithTag("Player");
         player2 = GameObject.FindGameObjectWithTag("Player2");
         ball = GameObject.FindGameObjectWithTag("Ball");
+
         ogBallPosition = ball.transform.position;
         ogPlayer1Position = player1.transform.position;
         ogPlayer2Position = player2.transform.position;
+
         showPlayerScore();
+        controlsScreen();
+        deactivate();
         Debug.Log("Start has been called.");
     }
 
@@ -60,6 +63,14 @@ public class GameManager : MonoBehaviour
         //Manage game pausing. (doesnt work properly in fixedupdate for some reason)
         isGamePaused = Input.GetKeyDown(KeyCode.P);
         OnApplicationPause(isGamePaused);
+
+        //Manage the start control screen. Uses seperate booleans so that the start delay and pausing work properly.
+        bool commaInput = Input.GetKeyDown(KeyCode.Comma);
+        if (commaInput == true)
+        {
+            hasPassedControlScreen = true;
+            isInitialDelay = true;
+        }
     }
 
     //Dependent on every FIXED Frame [Not Dependent on Hardware Performance like Update is]
@@ -74,6 +85,8 @@ public class GameManager : MonoBehaviour
         //Trigger the start delay if a player has scored. (triggered by updatePlayerScore)
         if ((hasScored == true) || (isInitialDelay == true))
         {
+            controlsDisplay.SetActive(false);
+
             Text delayText = delayDisplay.GetComponent<Text>();
 
             deactivate();
@@ -132,15 +145,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void showPlayerScore()
+    void showPlayerScore()
     {
         Text scoreText = scoreDisplay.GetComponent<Text>();
         scoreText.text = (player1Score.ToString() + " || " + player2Score.ToString());
     }
 
+    void controlsScreen()
+    {
+        Text controlsText = controlsDisplay.GetComponent<Text>();
+
+        //should be different dependent on game mode.
+
+        string[] controls = new string[6];
+        controls[0] = "     Player 1 (Top Screen)                             Player 2 (Bottom Screen)" + "\n" + "     -----------------------------                             ---------------------------------" + "\n";
+        controls[1] = "  Movement:   WASD Keys                                     Arrow Keys" + "\n";
+        controls[2] = "  Boost:           V         Key                                      J         Key " + "\n";
+        controls[3] = "  Camera:       C         Key                                      K         Key " + "\n";
+        controls[4] = "\n" + "                           Press the [P] Key to Pause.";
+        controls[5] = "\n" + "\n" + "                           Press the [Comma] Key to Continue.";
+
+        controlsText.text = controls[0] + controls[1] + controls[2] + controls[3] + controls[4] + controls[5];
+    }
+
     private void OnApplicationPause(bool pause)
     {
-        if (pause == true)
+        if ((pause == true) && (hasPassedControlScreen == true))
         {
             pauseKeyCount++;
         }
