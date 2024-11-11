@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,11 +31,13 @@ public class GameManager : MonoBehaviour
     private int player2Score = 0;
     private int pauseKeyCount = 0;
     private int startDelay = 0;
+    private int goalInt = 0;
 
     private bool isGamePaused;
     private bool hasScored = false;
     private bool isInitialDelay = false;
-    private bool hasPassedControlScreen;
+    private bool hasPassedControlScreen = false;
+    private bool isGoalShown = false;
 
     private Vector3 ogBallPosition;
     private Vector3 ogPlayer1Position;
@@ -86,41 +89,69 @@ public class GameManager : MonoBehaviour
         if ((hasScored == true) || (isInitialDelay == true))
         {
             controlsDisplay.SetActive(false);
-
             Text delayText = delayDisplay.GetComponent<Text>();
-
             deactivate();
-            //incrementing 50 per second
-            startDelay++;
 
-            if (startDelay == 1)
+            //show that a goal has been scored.
+            //************************************************************************
+
+            if (isGoalShown == true)
             {
-                Debug.Log("3");
-                delayText.text = "3";
+                delayText.text = "GOAL";
+                goalInt++;
+                //startDelay = 0;
+            }
+            //GOAL text is shown for a few seconds before the start delay countdown (granted a player has scored).
+            if (goalInt >= 250)
+            {
+                isGoalShown = false;
+                //goalInt = 0;
             }
 
-            if (startDelay == (50))
+            //*****************************************************************************
+
+            //if the goal text is being shown, the start delay cannot happen.
+            if ((hasScored == true) && (isInitialDelay == false) && (goalInt < 250))
             {
-                Debug.Log("2");
-                delayText.text = "2";
+                isGoalShown = true;
             }
-            if (startDelay == (100))
+            //manage the start delay.
+            else
             {
-                Debug.Log("1");
-                delayText.text = "1";
+                //incrementing 50 per second
+                startDelay++;
+
+                if (startDelay == 1)
+                {
+                    Debug.Log("3");
+                    delayText.text = "3";
+                }
+
+                if (startDelay == (50))
+                {
+                    Debug.Log("2");
+                    delayText.text = "2";
+                }
+                if (startDelay == (100))
+                {
+                    Debug.Log("1");
+                    delayText.text = "1";
+                }
+                //start delay is complete.
+                if (startDelay == 150)
+                {
+                    hasScored = false;
+                    startDelay = 0;
+                    goalInt = 0;
+                    isInitialDelay = false;
+                    activate();
+                    Debug.Log("Start");
+                    //delayText.text = "Start";
+                    delayText.text = "Paused";
+                    Debug.Log("Start Delay Complete.");
+                }
             }
-            //start delay is complete.
-            if (startDelay == 150)
-            {
-                hasScored = false;
-                startDelay = 0;
-                isInitialDelay = false;
-                activate();
-                Debug.Log("Start");
-                //delayText.text = "Start";
-                delayText.text = "Paused";
-                Debug.Log("Start Delay Complete.");
-            }
+
         }
     }
 
@@ -249,12 +280,27 @@ public class GameManager : MonoBehaviour
     //Should be called when score = 5
     void endOfGame()
     {
+        Debug.Log("The game has ended.");
         hasScored = false;
         deactivate();
 
-        //Debug.Log("The game has ended.");
-        //trigger other fun stuff that should happen.
-            //maybe show who won the game, and then give you the option to either replay, choose a new game mode, or quit.
-            //each option could have its own method that is called here dependent on what you choose.
+        //Use delayText since that camera is being used. save variables/memory.
+        Text delayText = delayDisplay.GetComponent<Text>();
+        string[] endOfGameText = new string[5];
+
+        //show who won the game.
+        if (player1Score == 5)
+        {
+            endOfGameText[0] = player1Score + " wins! Better luck next time, Player 2 !";
+        }
+        else if (player2Score == 5)
+        {
+            endOfGameText[0] = player2Score + " wins! Better luck next time, Player 1 !";
+        }
+
+        delayText.text = endOfGameText[0];
+
+        //give the player the option to either replay, choose a new game mode, or quit.
+        //each option could have its own method that is called here dependent on what you choose.
     }
 }
