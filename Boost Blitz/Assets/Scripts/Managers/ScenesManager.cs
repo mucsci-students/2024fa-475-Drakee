@@ -55,33 +55,4 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(Scene.SinglePlayer.ToString());
     }
-
-    public bool isMultiplayer(Scene scene, string theSceneAsString)
-    {
-        theSceneAsString = scene.ToString();
-        //Scene currScene = SceneManager.GetActiveScene();
-
-        if (theSceneAsString.Equals("Multiplayer"))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public bool isSinglePlayer(Scene scene, string theSceneAsString)
-    {
-        theSceneAsString = scene.ToString();
-
-        if (theSceneAsString.Equals("SinglePlayer"))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }

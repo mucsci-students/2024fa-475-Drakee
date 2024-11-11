@@ -24,8 +24,6 @@ public class GameManager : MonoBehaviour
     public GameObject scoreDisplay;
     public GameObject controlsDisplay;
 
-    private ScenesManager scenesManager;
-
     public Camera delayCamera;
 
     private int player1Score = 0;
@@ -128,7 +126,7 @@ public class GameManager : MonoBehaviour
 
     //OnCollisionEnter method will be done in a seperate script, since we are working with two players that need to be handled different.
     //Also, the players do not have the GameManager attached to them.
-    //Call this method in the new script.
+    //Call this method in the new script [GoalCollisions].
     public void updatePlayerScore (GameObject whichPlayer) 
     {
         if (whichPlayer.CompareTag("Player"))
@@ -157,21 +155,35 @@ public class GameManager : MonoBehaviour
     {
         Text controlsText = controlsDisplay.GetComponent<Text>();
 
-        //should be different dependent on game mode.
-        //Scene currentScene = ScenesManager.Scene;
-        
+        //should be different dependent on game mode. use to display different control screens.
+        string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
-        string[] controls = new string[6];
-        controls[0] = "     Player 1 (Top Screen)                             Player 2 (Bottom Screen)" + "\n" + "     -----------------------------                             ---------------------------------" + "\n";
-        controls[1] = "  Movement:   WASD Keys                                     Arrow Keys" + "\n";
-        controls[2] = "  Boost:           V         Key                                      J         Key " + "\n";
-        controls[3] = "  Camera:       C         Key                                      K         Key " + "\n";
-        controls[4] = "\n" + "                           Press the [P] Key to Pause.";
-        controls[5] = "\n" + "\n" + "                           Press the [Comma] Key to Continue.";
+        //the strings are formatted this way because of how text prints on screen. it is not a good 1:1 translation.
+        if (currentScene.Equals("Multiplayer"))
+        {
+            string[] controls = new string[6];
+            controls[0] = "     Player 1 (Top Screen)                             Player 2 (Bottom Screen)" + "\n" + "     -----------------------------                             ---------------------------------" + "\n";
+            controls[1] = "  Movement:   WASD Keys                                     Arrow Keys" + "\n";
+            controls[2] = "  Boost:           V         Key                                      J         Key " + "\n";
+            controls[3] = "  Camera:       C         Key                                      K         Key " + "\n";
+            controls[4] = "\n" + "                           Press the [P] Key to Pause (in-game).";
+            controls[5] = "\n" + "\n" + "                           Press the [Comma] Key to Continue.";
 
-        controlsText.text = controls[0] + controls[1] + controls[2] + controls[3] + controls[4] + controls[5];
+            controlsText.text = controls[0] + controls[1] + controls[2] + controls[3] + controls[4] + controls[5];
+        }
+        else if (currentScene.Equals("SinglePlayer"))
+        {
+            string[] controls = new string[6];
+            controls[0] = "     SinglePlayer Controls" + "\n" + "     -----------------------------" + "\n";
+            controls[1] = "     Movement:  WASD Keys" + "\n";
+            controls[2] = "   Boost:          V         Key" + "\n";
+            controls[3] = "   Camera:       C         Key" + "\n";
+            controls[4] = "\n" + "   Press the [P] Key to Pause (in-game).";
+            controls[5] = "\n" + "\n" + "   Press the [Comma] Key to Continue.";
+
+            controlsText.text = controls[0] + controls[1] + controls[2] + controls[3] + controls[4] + controls[5];
+        }
     }
-
     private void OnApplicationPause(bool pause)
     {
         if ((pause == true) && (hasPassedControlScreen == true))
