@@ -3320,6 +3320,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6323225578455709003, guid: 186179bdaf1081341942b7b1413732d7, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1123980290}
     - target: {fileID: 7000075649742612116, guid: 186179bdaf1081341942b7b1413732d7, type: 3}
       propertyPath: m_Name
       value: Player2Controller
@@ -3446,6 +3450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 7353929899380609363, guid: 6e951b2cb0be69840811e5f948811074, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1123980290}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
