@@ -257,4 +257,9 @@ public class GameManager : MonoBehaviour
             //maybe show who won the game, and then give you the option to either replay, choose a new game mode, or quit.
             //each option could have its own method that is called here dependent on what you choose.
     }
+
+    public bool getHasScored()
+    {
+        return hasScored;
+    }
 }

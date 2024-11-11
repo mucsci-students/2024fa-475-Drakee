@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player1Boost : MonoBehaviour
 {
     public GameObject boostFlames;
+    public GameManager gameManager;
     private Rigidbody playerRigidbody;
     private bool isBoosting = false;
     private float boostDuration = 3.0f;
@@ -53,9 +54,10 @@ public class Player1Boost : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         CheckBoost();
+        CheckForGoal();
     }
 
     void CheckBoost()
@@ -87,6 +89,16 @@ public class Player1Boost : MonoBehaviour
         if (cooldownTimer > 0.0f)
         {
             cooldownTimer -= Time.deltaTime;
+        }
+    }
+
+    void CheckForGoal()
+    {
+        if (gameManager.getHasScored())
+        {
+            isBoosting = false;
+            boostFlames.SetActive(false);
+            cooldownTimer = 0.0f;
         }
     }
 
