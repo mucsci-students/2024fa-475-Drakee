@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     private int startDelay = 0;
     private int goalInt = 0;
 
-    private bool isGamePaused;
+    private bool isGamePaused = false;
     private bool hasScored = false;
     private bool isInitialDelay = false;
     private bool hasPassedControlScreen = false;
@@ -304,8 +304,16 @@ public class GameManager : MonoBehaviour
         //each option could have its own method that is called here dependent on what you choose.
     }
 
+    //Getters:
+    //**************************************************************************************************
+
     public bool getHasScored()
     {
         return hasScored;
+    }
+
+    public bool getIsGamePaused()
+    {
+        return isGamePaused;
     }
 }
