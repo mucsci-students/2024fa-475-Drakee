@@ -291,11 +291,11 @@ public class GameManager : MonoBehaviour
         //show who won the game.
         if (player1Score == 5)
         {
-            endOfGameText[0] = player1Score + " wins! Better luck next time, Player 2 !";
+            endOfGameText[0] = "Player 1 Wins!" + "\n" + "Better luck next time, Player 2 !";
         }
         else if (player2Score == 5)
         {
-            endOfGameText[0] = player2Score + " wins! Better luck next time, Player 1 !";
+            endOfGameText[0] = "Player 2 Wins!" + "\n" + "Better luck next time, Player 1 !";
         }
 
         delayText.text = endOfGameText[0];
