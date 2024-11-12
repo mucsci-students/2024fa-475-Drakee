@@ -17,8 +17,6 @@ public class ScenesManager : MonoBehaviour
     {
         MainMenu,
         Multiplayer,
-        Lobby,
-        OnlineMP,
         SinglePlayer
     }
 
@@ -40,16 +38,6 @@ public class ScenesManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(Scene.MainMenu.ToString());
-    }
-
-    public void LoadMuliplayerLobby()
-    {
-        SceneManager.LoadScene(Scene.Lobby.ToString());
-    }
-
-    public void LoadMuliplayerInstance()
-    {
-        SceneManager.LoadScene(Scene.OnlineMP.ToString());
     }
     public void LoadSinglePlayerInstance()
     {
