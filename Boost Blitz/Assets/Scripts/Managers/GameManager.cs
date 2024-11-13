@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public GameObject controlsDisplay;
 
     public Camera delayCamera;
+    private Button quitBtn;
+    private Button menuBtn;
+
 
     private int player1Score = 0;
     private int player2Score = 0;
@@ -146,6 +149,21 @@ public class GameManager : MonoBehaviour
                     activate();
                     Debug.Log("Start");
                     //delayText.text = "Start";
+                    //init btns
+                    if (quitBtn == null)
+                    {
+                        quitBtn = delayDisplay.transform.Find("quitBtn").GetComponent<Button>();
+                        quitBtn.onClick.AddListener(OnQuitButtonClicked);
+        
+                        quitBtn.gameObject.SetActive(true);
+                    }
+                    
+                    if (menuBtn == null)
+                    {
+                        menuBtn = delayDisplay.transform.Find("menuBtn").GetComponent<Button>();
+                        menuBtn.onClick.AddListener(OnMenuButtonClicked);
+                        menuBtn.gameObject.SetActive(true);
+                    }
                     delayText.text = "Paused";
                     Debug.Log("Start Delay Complete.");
                 }
@@ -314,5 +332,20 @@ public class GameManager : MonoBehaviour
     public bool getIsGamePaused()
     {
         return isGamePaused;
+    }
+
+    //called by listeners
+    //**************************************************************************************************
+    void OnQuitButtonClicked()
+    {
+        quitBtn.gameObject.SetActive(false);
+        menuBtn.gameObject.SetActive(false);
+        Debug.Log("Quit button clicked!");
+    }
+
+    void OnMenuButtonClicked()
+    {
+        deactivate();
+        ScenesManager.Instance.LoadMainMenu();
     }
 }
