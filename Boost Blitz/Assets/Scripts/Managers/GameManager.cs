@@ -321,6 +321,7 @@ public class GameManager : MonoBehaviour
 
         delayText.text = endOfGameText[0];
 
+        Invoke("OnMenuButtonClicked",5f);
         //give the player the option to either replay, choose a new game mode, or quit.
         //each option could have its own method that is called here dependent on what you choose.
     }
