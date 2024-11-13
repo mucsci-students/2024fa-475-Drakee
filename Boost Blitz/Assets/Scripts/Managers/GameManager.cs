@@ -154,15 +154,13 @@ public class GameManager : MonoBehaviour
                     {
                         quitBtn = delayDisplay.transform.Find("quitBtn").GetComponent<Button>();
                         quitBtn.onClick.AddListener(OnQuitButtonClicked);
-        
-                        quitBtn.gameObject.SetActive(true);
+    
+                        
                     }
-                    
                     if (menuBtn == null)
                     {
                         menuBtn = delayDisplay.transform.Find("menuBtn").GetComponent<Button>();
-                        menuBtn.onClick.AddListener(OnMenuButtonClicked);
-                        menuBtn.gameObject.SetActive(true);
+                        menuBtn.onClick.AddListener(OnMenuButtonClicked);                        
                     }
                     delayText.text = "Paused";
                     Debug.Log("Start Delay Complete.");
@@ -244,12 +242,16 @@ public class GameManager : MonoBehaviour
         if (pauseKeyCount == 1)
         {
             //Debug.Log("Game Paused");
+            quitBtn.gameObject.SetActive(true);
+            menuBtn.gameObject.SetActive(true);
             deactivate();
         }
         //Unpauses the game.
         if (pauseKeyCount == 2)
         {
             activate();
+            quitBtn.gameObject.SetActive(false);
+            menuBtn.gameObject.SetActive(false);
             pause = false;
             pauseKeyCount = 0;
         }
