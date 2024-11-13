@@ -4,7 +4,7 @@
 [Click here to go to the Burndown Chart](https://docs.google.com/spreadsheets/d/1FVmgFHzBBEdOZSPVXW9Ml7P6YkJtKd7s3boH3c0g9_E/edit?usp=sharing)
 
 
-Credits (UNFINISHED)
+Credits
 --------------------
 "Boost Blitz" Game by: Tyler Strohl, Kyle Kalbach, & Derrick Boyer.
 -------------------------------------------------------------------
@@ -18,6 +18,10 @@ Player Movement by: Derrick Boyer.
 GameManager Class by: Tyler Strohl & Derrick Boyer.
 
 Multiplayer by: Derrick Boyer & Kyle Kalbach.
+
+SinglePlayer by: Derrick Boyer.
+
+UI by: Tyler Strohl & Kyle Kalbach.
 
 Special Thanks:
 ---------------
