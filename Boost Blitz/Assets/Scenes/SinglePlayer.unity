@@ -3375,10 +3375,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4441768914323759882, guid: cf68cd2bf37129f4e923492b9f8fd2dc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5975775159443797821, guid: cf68cd2bf37129f4e923492b9f8fd2dc, type: 3}
       propertyPath: ball
       value: 
       objectReference: {fileID: 1727042620}
+    - target: {fileID: 7681204089403622805, guid: cf68cd2bf37129f4e923492b9f8fd2dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974525853241762994, guid: cf68cd2bf37129f4e923492b9f8fd2dc, type: 3}
       propertyPath: m_Name
       value: NPCCar
