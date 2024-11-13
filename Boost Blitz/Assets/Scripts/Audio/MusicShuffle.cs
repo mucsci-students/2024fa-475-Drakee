@@ -21,8 +21,8 @@ public class MusicShuffle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //next track starts after the current one is over.
-        if (!theAudioSource.isPlaying)
+        //next track starts after the current one is over or if the 'next track' key is pushed.
+        if ((!theAudioSource.isPlaying) || (Input.GetKeyDown(KeyCode.N)))
         {
             theAudioSource.clip = GetNextClip();
             theAudioSource.Play();
@@ -31,7 +31,7 @@ public class MusicShuffle : MonoBehaviour
 
     public AudioClip GetNextClip()
     {
-        if (trackIndex < musicTracks.Length)
+        if (trackIndex < (musicTracks.Length - 1))
         {
             trackIndex++;
         }

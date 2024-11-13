@@ -209,27 +209,29 @@ public class GameManager : MonoBehaviour
         //the strings are formatted this way because of how text prints on screen. it is not a good 1:1 translation.
         if (currentScene.Equals("Multiplayer"))
         {
-            string[] controls = new string[6];
+            string[] controls = new string[7];
             controls[0] = "     Player 1 (Top Screen)                             Player 2 (Bottom Screen)" + "\n" + "     -----------------------------                             ---------------------------------" + "\n";
             controls[1] = "  Movement:   WASD Keys                                     Arrow Keys" + "\n";
             controls[2] = "  Boost:           V         Key                                      J         Key " + "\n";
             controls[3] = "  Camera:       C         Key                                      K         Key " + "\n";
-            controls[4] = "\n" + "                           Press the [P] Key to Pause (in-game).";
-            controls[5] = "\n" + "\n" + "                           Press the [Comma] Key to Continue.";
+            controls[4] = "\n" + "                           Press the [N] Key to Skip the Current Music Track.";
+            controls[5] = "\n" + "                           Press the [P] Key to Pause (in-game).";
+            controls[6] = "\n" + "\n" + "                           Press the [Comma] Key to Continue.";
 
-            controlsText.text = controls[0] + controls[1] + controls[2] + controls[3] + controls[4] + controls[5];
+            controlsText.text = controls[0] + controls[1] + controls[2] + controls[3] + controls[4] + controls[5] + controls[6];
         }
         else if (currentScene.Equals("SinglePlayer"))
         {
-            string[] controls = new string[6];
+            string[] controls = new string[7];
             controls[0] = "     SinglePlayer Controls" + "\n" + "     -----------------------------" + "\n";
             controls[1] = "     Movement:  WASD Keys" + "\n";
             controls[2] = "   Boost:          V         Key" + "\n";
             controls[3] = "   Camera:       C         Key" + "\n";
-            controls[4] = "\n" + "   Press the [P] Key to Pause (in-game).";
-            controls[5] = "\n" + "\n" + "   Press the [Comma] Key to Continue.";
+            controls[4] = "\n" + "                        Press the [N] Key to Skip the Current Music Track.";
+            controls[5] = "\n" + "    Press the [P] Key to Pause (in-game).";
+            controls[6] = "\n" + "\n" + "   Press the [Comma] Key to Continue.";
 
-            controlsText.text = controls[0] + controls[1] + controls[2] + controls[3] + controls[4] + controls[5];
+            controlsText.text = controls[0] + controls[1] + controls[2] + controls[3] + controls[4] + controls[5] + controls[6];
         }
     }
     private void OnApplicationPause(bool pause)
