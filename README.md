@@ -21,6 +21,8 @@ Multiplayer by: Derrick Boyer & Kyle Kalbach.
 
 SinglePlayer by: Derrick Boyer.
 
+UI by: Tyler Strohl & Kyle Kalbach.
+
 Special Thanks:
 ---------------
 Thanks to Rocket League for the inspiration for Boost Blitz.
