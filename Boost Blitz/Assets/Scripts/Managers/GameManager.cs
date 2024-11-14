@@ -25,9 +25,11 @@ public class GameManager : MonoBehaviour
     public GameObject controlsDisplay;
 
     public Camera delayCamera;
+
     private Button quitBtn;
     private Button menuBtn;
 
+    public ScenesManager scenesManager;
 
     private int player1Score = 0;
     private int player2Score = 0;
@@ -346,11 +348,14 @@ public class GameManager : MonoBehaviour
         quitBtn.gameObject.SetActive(false);
         menuBtn.gameObject.SetActive(false);
         Debug.Log("Quit button clicked!");
+        Application.Quit();
     }
 
     void OnMenuButtonClicked()
     {
         deactivate();
-        ScenesManager.Instance.LoadMainMenu();
+        Debug.Log("Menu button clicked!");
+        //ScenesManager.Instance.LoadMainMenu();
+        scenesManager.LoadMainMenu();
     }
 }
