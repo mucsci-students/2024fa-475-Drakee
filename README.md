@@ -15,7 +15,7 @@ Game Physics by: Derrick Boyer, Kyle Kalbach.
 
 Player Movement by: Derrick Boyer.
 
-GameManager Class by: Tyler Strohl & Derrick Boyer.
+GameManager Class by: Tyler Strohl & Derrick Boyer & Kyle Kalbach.
 
 Multiplayer by: Derrick Boyer & Kyle Kalbach.
 
